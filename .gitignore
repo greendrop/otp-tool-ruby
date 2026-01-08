@@ -1,0 +1,13 @@
+/.bundle
+/vendor/bundle
+
+# macOS
+*.DS_Store
+
+# Ruby / Bundler
+/log/
+/tmp/
+/coverage/
+*.rbc
+.byebug_history
+/.env
