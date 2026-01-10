@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/instructions/commit-message.instructions.md"
+    }
+  ],
+  "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+    {
+      "file": ".github/instructions/pull-request-description.instructions.md"
+    }
+  ],
+  "[ruby]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  }
+}
