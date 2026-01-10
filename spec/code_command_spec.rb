@@ -1,0 +1,51 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+require 'stringio'
+require 'otp_tool/code_command'
+require 'otp_tool/uri_parser'
+
+RSpec.describe OtpTool::CodeCommand do
+  let(:otp_uri) { 'otpauth://totp/Example:alice@example.com?secret=SECRET&issuer=Example' }
+  let(:secret) { 'SECRET' }
+  let(:totp_double) { instance_double(ROTP::TOTP) }
+
+  def capture_stdout
+    original_stdout = $stdout
+    $stdout = StringIO.new
+    yield
+    $stdout.string
+  ensure
+    $stdout = original_stdout
+  end
+
+  before do
+    allow(OtpTool::UriParser).to receive(:new).with(otp_uri).and_return(instance_double(OtpTool::UriParser, secret: secret))
+    allow(ROTP::TOTP).to receive(:new).with(secret).and_return(totp_double)
+  end
+
+  describe '#run' do
+    it 'UriParser と ROTP::TOTP を使って display_loop を呼び出す' do
+      command = described_class.new(otp_uri)
+
+      expect(command).to receive(:display_loop).with(totp_double)
+
+      capture_stdout { command.send(:run) }
+    end
+
+    it '開始メッセージを出力する' do
+      command = described_class.new(otp_uri)
+      allow(command).to receive(:display_loop)
+
+      output = StringIO.new
+      original_stdout = $stdout
+      $stdout = output
+
+      command.run
+
+      expect(output.string).to include('Press Ctrl+C to stop...')
+    ensure
+      $stdout = original_stdout
+    end
+  end
+end
