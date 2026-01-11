@@ -5,7 +5,7 @@ require 'stringio'
 require 'otp_tool/cli'
 require 'otp_tool/code_command'
 require 'otp_tool/qr_command'
-require_relative './support/capture_stdout'
+require_relative '../../support/capture_stdout'
 
 RSpec.describe OtpTool::CLI do
   describe '.run' do

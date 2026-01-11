@@ -1,4 +1,4 @@
-# frozen_string_literal: true  
+# frozen_string_literal: true
 
 def capture_stdout
   original_stdout = $stdout
