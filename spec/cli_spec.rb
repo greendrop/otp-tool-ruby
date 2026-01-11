@@ -5,19 +5,11 @@ require 'stringio'
 require 'otp_tool/cli'
 require 'otp_tool/code_command'
 require 'otp_tool/qr_command'
+require_relative './support/capture_stdout'
 
 RSpec.describe OtpTool::CLI do
   describe '.run' do
     let(:otp_uri) { 'otpauth://totp/Example:alice@example.com?secret=SECRET&issuer=Example' }
-
-    def capture_stdout
-      original_stdout = $stdout
-      $stdout = StringIO.new
-      yield
-      $stdout.string
-    ensure
-      $stdout = original_stdout
-    end
 
     it '引数が不足している場合は USAGE を表示する' do
       output = capture_stdout { described_class.run([]) }

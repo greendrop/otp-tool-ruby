@@ -4,20 +4,12 @@ require 'spec_helper'
 require 'stringio'
 require 'otp_tool/code_command'
 require 'otp_tool/uri_parser'
+require_relative './support/capture_stdout'
 
 RSpec.describe OtpTool::CodeCommand do
   let(:otp_uri) { 'otpauth://totp/Example:alice@example.com?secret=SECRET&issuer=Example' }
   let(:secret) { 'SECRET' }
   let(:totp_double) { instance_double(ROTP::TOTP) }
-
-  def capture_stdout
-    original_stdout = $stdout
-    $stdout = StringIO.new
-    yield
-    $stdout.string
-  ensure
-    $stdout = original_stdout
-  end
 
   before do
     allow(OtpTool::UriParser).to receive(:new).with(otp_uri).and_return(instance_double(OtpTool::UriParser, secret: secret))
