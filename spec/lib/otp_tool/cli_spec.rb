@@ -27,19 +27,23 @@ RSpec.describe OtpTool::CLI do
     it 'code コマンドの場合は CodeCommand を実行する' do
       code_command_double = instance_double(OtpTool::CodeCommand)
 
-      expect(OtpTool::CodeCommand).to receive(:new).with(otp_uri).and_return(code_command_double)
-      expect(code_command_double).to receive(:run)
+      allow(OtpTool::CodeCommand).to receive(:new).with(otp_uri).and_return(code_command_double)
+      allow(code_command_double).to receive(:run)
 
       described_class.run(['code', otp_uri])
+
+      expect(code_command_double).to have_received(:run)
     end
 
     it 'qr コマンドの場合は QrCommand を実行する' do
       qr_command_double = instance_double(OtpTool::QrCommand)
 
-      expect(OtpTool::QrCommand).to receive(:new).with(otp_uri).and_return(qr_command_double)
-      expect(qr_command_double).to receive(:run)
+      allow(OtpTool::QrCommand).to receive(:new).with(otp_uri).and_return(qr_command_double)
+      allow(qr_command_double).to receive(:run)
 
       described_class.run(['qr', otp_uri])
+
+      expect(qr_command_double).to have_received(:run)
     end
 
     it '実行時に StandardError が発生した場合はエラーメッセージを表示する' do

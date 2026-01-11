@@ -21,9 +21,11 @@ RSpec.describe OtpTool::CodeCommand do
     it 'UriParser と ROTP::TOTP を使って display_loop を呼び出す' do
       command = described_class.new(otp_uri)
 
-      expect(command).to receive(:display_loop).with(totp_double)
+      allow(command).to receive(:display_loop)
 
       capture_stdout { command.send(:run) }
+
+      expect(command).to have_received(:display_loop).with(totp_double)
     end
 
     it '開始メッセージを出力する' do
