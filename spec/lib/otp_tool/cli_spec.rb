@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'stringio'
 require 'otp_tool/cli'
 require 'otp_tool/code_command'
 require 'otp_tool/qr_command'

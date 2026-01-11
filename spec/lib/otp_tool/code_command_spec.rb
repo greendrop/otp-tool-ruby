@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'stringio'
 require 'otp_tool/code_command'
 require 'otp_tool/uri_parser'
 require_relative '../../support/capture_stdout'
