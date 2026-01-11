@@ -23,7 +23,7 @@ RSpec.describe OtpTool::CodeCommand do
 
       allow(command).to receive(:display_loop)
 
-      capture_stdout { command.send(:run) }
+      capture_stdout { command.run }
 
       expect(command).to have_received(:display_loop).with(totp_double)
     end
