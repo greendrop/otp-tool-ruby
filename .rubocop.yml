@@ -45,6 +45,3 @@ Style/AsciiComments:
 
 Style/Documentation:
   Enabled: false
-
-Style/HashSyntax:
-  EnforcedShorthandSyntax: always
