@@ -11,3 +11,6 @@
 *.rbc
 .byebug_history
 /.env
+
+# SimpleCov
+/coverage
