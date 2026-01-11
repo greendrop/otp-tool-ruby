@@ -9,6 +9,12 @@ RSpec.describe OtpTool::QrCommand do
 
   before do
     allow(RQRCode::QRCode).to receive(:new).with(otp_uri).and_return(qrcode_double)
+    allow(qrcode_double).to receive(:as_ansi).with(
+      light: "\033[47m",
+      dark: "\033[40m",
+      fill_character: '  ',
+      quiet_zone_size: 2
+    ).and_return('QR_CODE')
   end
 
   describe '#run' do
