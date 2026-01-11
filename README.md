@@ -22,6 +22,12 @@ bundle install
 bundle exec rubocop
 ```
 
+## Test (RSpec)
+
+```bash
+bundle exec rspec
+```
+
 ## Usage
 
 ### Basic usage

@@ -22,6 +22,12 @@ bundle install
 bundle exec rubocop
 ```
 
+## テスト (RSpec)
+
+```bash
+bundle exec rspec
+```
+
 ## 使い方
 
 ### 基本形式
