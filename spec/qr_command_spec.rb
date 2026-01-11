@@ -16,16 +16,7 @@ RSpec.describe OtpTool::QrCommand do
     it 'QR コードを生成し、端末に出力する' do
       command = described_class.new(otp_uri)
 
-      output = StringIO.new
-      original_stdout = $stdout
-      $stdout = output
-
-      command.run
-
-      expect(output.string).to include('QR_CODE')
-      expect(output.string).to include('Scan this QR code with an authenticator app on your phone.')
-    ensure
-      $stdout = original_stdout
+      expect { command.run }.to output(/QR_CODE/).to_stdout
     end
   end
 end

@@ -37,15 +37,7 @@ RSpec.describe OtpTool::CodeCommand do
       command = described_class.new(otp_uri)
       allow(command).to receive(:display_loop)
 
-      output = StringIO.new
-      original_stdout = $stdout
-      $stdout = output
-
-      command.run
-
-      expect(output.string).to include('Press Ctrl+C to stop...')
-    ensure
-      $stdout = original_stdout
+      expect { command.run }.to output(/Press Ctrl\+C to stop\.\.\./).to_stdout
     end
   end
 end
