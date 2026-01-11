@@ -13,10 +13,6 @@ Layout/LineLength:
 Metrics/MethodLength:
   Max: 20
 
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
-
 RSpec/ContextWording:
   Enabled: false
 
