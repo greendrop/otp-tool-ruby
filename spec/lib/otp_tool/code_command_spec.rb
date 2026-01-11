@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'otp_tool/code_command'
 require 'otp_tool/uri_parser'
-require_relative '../../support/capture_stdout'
+require_relative '../../support/capture_helper'
 
 RSpec.describe OtpTool::CodeCommand do
   let(:otp_uri) { 'otpauth://totp/Example:alice@example.com?secret=SECRET&issuer=Example' }

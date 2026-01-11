@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'otp_tool/cli'
 require 'otp_tool/code_command'
 require 'otp_tool/qr_command'
-require_relative '../../support/capture_stdout'
+require_relative '../../support/capture_helper'
 
 RSpec.describe OtpTool::CLI do
   describe '.run' do
