@@ -7,6 +7,7 @@ gem 'rotp'
 gem 'rqrcode'
 
 group :development, :test do
+  gem 'bundler-audit', require: false
   gem 'rspec', require: false
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
