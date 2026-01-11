@@ -3,6 +3,7 @@ GEM
   specs:
     ast (2.4.3)
     chunky_png (1.4.0)
+    diff-lcs (1.6.2)
     json (2.18.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
@@ -20,6 +21,19 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 2.0)
     rqrcode_core (2.0.1)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
     rubocop (1.82.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -38,6 +52,9 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.47.1, < 2.0)
+    rubocop-rspec (3.9.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
@@ -51,8 +68,10 @@ DEPENDENCIES
   optparse
   rotp
   rqrcode
+  rspec
   rubocop
   rubocop-performance
+  rubocop-rspec
 
 BUNDLED WITH
    2.6.9

@@ -6,7 +6,9 @@ gem 'optparse'
 gem 'rotp'
 gem 'rqrcode'
 
-group :development do
+group :development, :test do
+  gem 'rspec', require: false
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
 end
