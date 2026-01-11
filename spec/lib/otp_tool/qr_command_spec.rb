@@ -16,6 +16,7 @@ RSpec.describe OtpTool::QrCommand do
       command = described_class.new(otp_uri)
 
       expect { command.run }.to output(/QR_CODE/).to_stdout
+      expect { command.run }.to output(/Scan this QR code/).to_stdout
     end
   end
 end
