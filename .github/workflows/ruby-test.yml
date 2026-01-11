@@ -26,5 +26,11 @@ jobs:
           bundler-cache: true
 
       - name: Run rspec
+        env:
+          COVERAGE: true
         run: |
           bundle exec rspec
+
+      - name: Report coverage to GitHub
+        uses: k1LoW/octocov-action@73d561f65d59e66899ed5c87e4621a913b5d5c20 # v1.5.0
+        if: github.event_name == 'pull_request'
