@@ -21,7 +21,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup ruby
-        uses: ruby/setup-ruby@e69dcf3ded5967f30d7ef595704928d91cdae930 # v1.285.0
+        uses: ruby/setup-ruby@6ca151fd1bfcfd6fe0c4eb6837eb0584d0134a0c # v1.290.0
         with:
           bundler-cache: true
 
